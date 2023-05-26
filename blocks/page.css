@@ -1,5 +1,5 @@
 .page {
-    background-color: black;  
+    background-color: black;
     color: white;
   }
   
@@ -10,7 +10,7 @@
     margin: 0 auto;
   }
   .page__content {
-    display: flex;  
-    flex-direction: column; 
-    min-height: 100vh;   
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
