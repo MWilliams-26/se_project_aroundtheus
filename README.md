@@ -22,3 +22,6 @@ Good luck and have fun!
 
 ![Project screenshot desktop](https://github.com/MWilliams-26/se_project_aroundtheus/assets/129562325/60066c28-8f14-45b0-9d6d-e00c574b19f8)
 ![Around-the-U-S-2](https://github.com/MWilliams-26/se_project_aroundtheus/assets/129562325/b65e63f0-0463-4513-845e-ac7c65b43e92)
+
+**GitHub**
+https://github.com/MWilliams-26/se_project_aroundtheus.git
