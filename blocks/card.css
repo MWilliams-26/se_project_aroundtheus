@@ -1,18 +1,18 @@
 .card {
-    display: flex;  
+    display: flex;
     flex-direction: column;
-    list-style: none; 
-    border-radius: 10px;        
+    list-style: none;
+    border-radius: 10px;
   }   
   
   .card__image {
-    width: 282px;  
-    height: 282px; 
+    width: 282px;
+    height: 282px;
     border-radius: 10px 10px 0 10px;
   }
   
   .card__description {
-    display: flex;  
+    display: flex;
     background-color: white;
     color: black;
     padding-top: 25px;
@@ -25,7 +25,7 @@
   }
   
   .card__like-button {
-    background: transparent url(../images/like-icon.svg) center no-repeat;  
+    background: transparent url(../images/like-icon.svg) center no-repeat;
     width: 21px;
     height: 18px;
     margin-left: 28px;
@@ -33,7 +33,7 @@
   }
   
   .card__like-button:hover {
-    opacity: 0.6;  
+    opacity: 0.6;
     cursor: pointer;
     transition: 0.1s;
   }
