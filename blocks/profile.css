@@ -38,17 +38,18 @@
   
   .profile__edit-button {
     background: transparent url(../images/edit-pencil.svg) center no-repeat;
+    background-size: 10px 10px;
     height: 24px;
     width: 24px;
     margin-left: 18px;
     grid-area: button;
     border: 1px solid #fff;
+    transition: 0.1s;
   }
   
   .profile__edit-button:hover {
-      opacity: 0.6;
-      cursor: pointer;
-      transition: 0.1s;
+    opacity: 0.6;
+    cursor: pointer;
   }
   
   .profile__description {
@@ -91,7 +92,7 @@
   }
   
   
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 568px) {
     .profile {
       flex-direction: column;
       margin-bottom: 36px;
@@ -106,7 +107,7 @@
     }
   
     .profile__image {
-      margin-right: 30px;
+      margin-right: 0;
       margin-bottom: 26.25px;
     }
   
@@ -120,18 +121,17 @@
   
     .profile__add-button {
       margin: 0;
-      margin-bottom: 36px;
       width: 282px;
+      background-size: 16px 16px;
     }
   
     .profile__title {
-      font-size: 22px;
       text-align: center;
-      line-height: 27px;
     }
   
     .profile__edit-button {
       width: 18px;
       height: 18px;
+      background-size: 7.5px 7.49px;
     }
   }
