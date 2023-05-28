@@ -22,6 +22,5 @@ http://127.0.0.1:5501/
 ![Around-the-U-S-desktop full](https://github.com/MWilliams-26/se_project_aroundtheus/assets/129562325/761fbc77-619d-456c-a97d-6b82bef90e40)
 ![Around-the-U-S-mobile full](https://github.com/MWilliams-26/se_project_aroundtheus/assets/129562325/b146bc42-4eaf-42c8-ac84-c8be837222cc)
 
-**GitHub**
 
 
