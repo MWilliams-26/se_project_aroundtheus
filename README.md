@@ -16,6 +16,7 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **GitHub**  
 
+https://github.com/MWilliams-26/se_project_aroundtheus.git
 
 **Images** 
 ![Around-the-U-S-desktop full](https://github.com/MWilliams-26/se_project_aroundtheus/assets/129562325/761fbc77-619d-456c-a97d-6b82bef90e40)
