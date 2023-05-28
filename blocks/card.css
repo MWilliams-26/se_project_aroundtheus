@@ -43,6 +43,7 @@
     height: 18px;
     margin-left: 28px;
     border-style: none;
+    background-size: 18px 21px;
   }
   
   .card__like-button:hover {
