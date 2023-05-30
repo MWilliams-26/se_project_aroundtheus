@@ -19,10 +19,11 @@
     padding-top: 25px;
     padding-bottom: 25px;
     padding-left: 20px;
-    padding-right: 28px;
+    padding-right: 20px;
     border-radius: 0 0 10px 10px;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
   }
 
   .card__title {
@@ -35,14 +36,13 @@
     white-space: nowrap;
     overflow: hidden;
     margin: 0;
-    max-width: 219px;
+    max-width: 215px;
   }
   
   .card__like-button {
     background: transparent url(../images/like-icon.svg) center no-repeat;
     width: 21px;
     height: 18px;
-    margin-left: 28px;
     border-style: none;
     background-size: 18px 21px;
   }
