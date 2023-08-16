@@ -53,7 +53,7 @@ const profileAddCardTitleInput = profileAddCardModal.querySelector(".modal__inpu
 const profileAddCardUrlInput = profileAddCardModal.querySelector(".modal__input_type_url");
 
 const profileAddCardForm = profileAddCardModal.querySelector(".modal__add_form");
-const profileAddCardTitle = profileAddCardModal.querySelector("#profile-title-input");
+const profileAddCardTitle = profileAddCardModal.querySelector("#profile-title-add-card-input");
 const profileAddCardUrl = profileAddCardModal.querySelector("#profile-url-input");
 
 // add preview image modal 
