@@ -8,6 +8,7 @@
   z-index: 999;
   display: none;
   padding: 0 19px 0 19px;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .modal_opened {
@@ -22,6 +23,30 @@
   border-radius: 10px;
   width: 430px;
   height: 330px;
+}
+
+.modal__container-preview {
+  background-color: transparent;
+  max-width: 433px;
+  max-height: 540px;
+  position: relative;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: auto;
+}
+
+.modal__container-preview-image {
+  max-height: 75vh;
+  max-width: 75vw;
+}
+
+.modal__preview-caption {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 10px);
+  margin: 0;
 }
 
 .modal__close {
@@ -115,6 +140,8 @@
     min-height: 322px;
     padding: 25px 22px 0 25px;
   }
+
+
 
   .modal__form {
     width: 100%;
