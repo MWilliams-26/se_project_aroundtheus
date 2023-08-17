@@ -57,10 +57,10 @@ const profileAddCardTitle = profileAddCardModal.querySelector("#profile-title-ad
 const profileAddCardUrl = profileAddCardModal.querySelector("#profile-url-input");
 
 // add preview image modal 
-const imagePreviewModal = document.querySelector("#profile-preview-image-modal");
-const modalImageElement = imagePreviewModal.querySelector(".modal__preview-image");
-const modalCaption = imagePreviewModal.querySelector(".modal__preview-caption");
-const imagePreviewCloseButton = imagePreviewModal.querySelector("#profile-preview-image-close-button");
+const imagePreviewModal = document.querySelector("#image-preview-modal");
+const modalImageElement = imagePreviewModal.querySelector(".modal__image-preview");
+const modalCaption = imagePreviewModal.querySelector(".modal__image-caption");
+const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close");
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                    Functions                                   ||
@@ -85,7 +85,7 @@ function getCardElement(cardData) {
 
   //add click listener to the cardImage element
   cardImageEl.addEventListener("click", () => {
-    imagePreviewModal.querySelector(".modal__preview-image");
+    imagePreviewModal.querySelector(".modal__image-preview");
     modalImageElement.src = cardData.link; 
     modalImageElement.alt = cardData.name;
     modalCaption.textContent = cardData.name;
@@ -157,7 +157,7 @@ profileAddCardCloseButton.addEventListener("click", closePopup)
 
 profileAddCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
-imagePreviewModal.addEventListener("click", closePopup)
+imagePreviewCloseButton.addEventListener("click", closePopup)
 
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
