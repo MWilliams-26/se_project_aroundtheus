@@ -15,7 +15,7 @@
          class="header__logo"
          src="./images/logo.svg" 
          alt="Around the U.S. logo"
-        />
+        >
       </header>
 
       <main class="content">
@@ -24,7 +24,7 @@
             class="profile__image"
             src="./images/jacques-cousteau.png"
             alt="Avatar"
-            />
+            >
             <div class="profile__info">
               <h1 class="profile__title">Jacques Cousteau</h1>
               <button class="profile__edit-button" id="profile-edit-button" type="button"></button>
@@ -68,26 +68,24 @@
     </div>
 
     <!-- Image preview modal -->
-    <div class="modal" id="profile-preview-image-modal">
-      <div class="modal__container-preview modal__container-preview-image">
-        
-        <img 
-          class="modal__preview-image"
+    <div class="modal" id="image-preview-modal">
+      <div class="modal__image-container">
+        <img   
+          class="modal__image-preview"
           src="#"
           alt="#"
         >
-        <p class="modal__preview-caption"></p>
-        <button class="modal__close modal__close-preview" id="profile-preview-image-close-button"></button>
+        <p class="modal__image-caption"></p>
+        <button class="modal__close"></button>
       </div>
     </div>
 
     <template id="card-template">
       <li class="card">
         <img
-        class="card__image"
-        src="#"
+        class="card__image" src="#"
         alt="#"
-        />
+        >
         <button class="card__delete-button" type="button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
