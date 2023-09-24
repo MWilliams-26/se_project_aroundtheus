@@ -65,6 +65,10 @@ const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close")
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                    Functions                                   ||
 // ! ||--------------------------------------------------------------------------------||
+
+
+
+
 function closePopup(modal) {
     modal.classList.remove("modal_opened");
 }
@@ -158,7 +162,51 @@ addCardForm.addEventListener("submit", handleProfileAddCardSubmit);
 
 imagePreviewCloseButton.addEventListener("click", () => closePopup(imagePreviewModal));
 
-
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
+// closing modal by pressing on overlay
 
+profileEditModal.addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal_opened")) {
+      closePopup(profileEditModal);  
+    }
+});
+
+profileAddCardModal.addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal_opened")) {
+      closePopup(profileAddCardModal);  
+    }
+});
+
+imagePreviewModal.addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal_opened")) {
+      closePopup(imagePreviewModal);  
+    }
+});
+
+/*function closeModalByEscape(e) {
+    if (e.key === "escape") {
+        const activeModal = document.querySelector("modal_opened")
+        closePopup(activeModal);
+    }
+};*/
+
+// closing modal by pressing escape key
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closePopup(profileEditModal);
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closePopup(profileAddCardModal);
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closePopup(imagePreviewModal);
+    }
+});
