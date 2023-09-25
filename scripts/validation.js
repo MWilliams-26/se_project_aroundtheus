@@ -17,11 +17,10 @@ function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
 
 function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
-    return showInputError(formEl, inputEl, options);
-  } 
-  
-  hideInputError(formEl, inputEl, options);
-  
+    showInputError(formEl, inputEl, options);
+  } else {
+    hideInputError(formEl, inputEl, options);
+  }  
 }
 
 function hasInvalidInput(inputList) {
@@ -44,18 +43,18 @@ function enableButton(inputEls, submitButton, { inactiveButtonClass }) {
 
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
   if (hasInvalidInput(inputEls)) {
-    submitButton.classList.add(inactiveButtonClass)
-    return
-  } 
-   
-  submitButton.classList.remove(inactiveButtonClass);
-}
+    submitButton.classList.add(inactiveButtonClass);
+  } else {
+    submitButton.classList.remove(inactiveButtonClass);
+  }
+}  
 
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
+  const { submitButtonSelector } = options;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  const submitButton = formEl.querySelector(".modal__button")
-  
+  const submitButton = formEl.querySelector(submitButtonSelector)
+    
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, options);

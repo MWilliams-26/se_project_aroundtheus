@@ -71,10 +71,14 @@ const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close")
 
 function closePopup(modal) {
     modal.classList.remove("modal_opened");
+    modal.removeEventListener("mousedown", closeModalOnRemoteClick)
+    document.removeEventListener("keydown", closeModalByEscape);
 }
 
 function openPopup(modal) {
     modal.classList.add("modal_opened");
+    modal.addEventListener("mousedown", closeModalOnRemoteClick);
+    document.addEventListener("keydown", closeModalByEscape);
 }
 
 function renderCard(cardData, wrapper) {
@@ -166,7 +170,7 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 // closing modal by pressing on overlay
 
-profileEditModal.addEventListener("click", (e) => {
+profileEditModal.addEventListener("mousedown", (e) => {
     if (e.target.classList.contains("modal_opened")) {
       closePopup(profileEditModal);  
     }
@@ -184,12 +188,21 @@ imagePreviewModal.addEventListener("click", (e) => {
     }
 });
 
-/*function closeModalByEscape(e) {
+function closeModalByEscape(e) {
     if (e.key === "escape") {
         const activeModal = document.querySelector("modal_opened")
         closePopup(activeModal);
     }
-};*/
+};
+
+function closeModalOnRemoteClick(evt) {
+    // target is the element on which the event happened
+    // currentTarget is the modal
+    // if they are the same then we should close the modal
+    if (evt.target === evt.currentTarget || evt.target.classList.contains(".modal__close")) { 
+       closePopup(evt.target)
+    }
+  }; 
 
 // closing modal by pressing escape key
 
