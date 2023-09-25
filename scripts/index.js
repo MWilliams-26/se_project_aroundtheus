@@ -170,7 +170,7 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 // closing modal by pressing on overlay
 
-profileEditModal.addEventListener("mousedown", (e) => {
+/*profileEditModal.addEventListener("mousedown", (e) => {
     if (e.target.classList.contains("modal_opened")) {
       closePopup(profileEditModal);  
     }
@@ -186,10 +186,10 @@ imagePreviewModal.addEventListener("click", (e) => {
     if (e.target.classList.contains("modal_opened")) {
       closePopup(imagePreviewModal);  
     }
-});
+});*/
 
 function closeModalByEscape(e) {
-    if (e.key === "escape") {
+    if (e.key === "Escape") {
         const activeModal = document.querySelector("modal_opened")
         closePopup(activeModal);
     }
@@ -206,7 +206,7 @@ function closeModalOnRemoteClick(evt) {
 
 // closing modal by pressing escape key
 
-document.addEventListener("keydown", (e) => {
+/*document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         closePopup(profileEditModal);
     }
@@ -222,4 +222,4 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         closePopup(imagePreviewModal);
     }
-});
+});*/
