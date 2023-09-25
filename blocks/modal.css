@@ -96,10 +96,6 @@
   margin-bottom: 29.74px;
 }
 
-.modal__input:disabled {
-
-}
-
 .modal__input::placeholder {
   color: #000;
   font-size: 14px;
@@ -154,12 +150,15 @@
   cursor: pointer;
 }
 
-.modal__button:hover {
+.modal__button:hover:not(:disabled) {
   opacity: 0.8;
 }
 
-.modal__button:disabled {
+.modal__button_disabled {
   opacity: 0.2;
+  background-color:#FFF;
+  color: #000;
+  cursor: default; 
 }
 
 @media screen and (max-width: 580px) {
