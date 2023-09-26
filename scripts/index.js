@@ -190,7 +190,7 @@ imagePreviewModal.addEventListener("click", (e) => {
 
 function closeModalByEscape(e) {
     if (e.key === "Escape") {
-        const activeModal = document.querySelector("modal_opened")
+        const activeModal = document.querySelector(".modal_opened")
         closePopup(activeModal);
     }
 };
