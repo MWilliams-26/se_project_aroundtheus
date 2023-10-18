@@ -3,34 +3,6 @@ const modalImageElement = imagePreviewModal.querySelector(".modal__image-preview
 const modalCaption = imagePreviewModal.querySelector(".modal__image-caption");
 const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close");
 
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick)
-  document.removeEventListener("keydown", closeModalByEscape);
-}
-
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
-  document.addEventListener("keydown", closeModalByEscape);
-}
-
-function closeModalByEscape(e) {
-  if (e.key === "Escape") {
-      const activeModal = document.querySelector(".modal_opened")
-      closePopup(activeModal);
-  }
-};
-
-function closeModalOnRemoteClick(evt) {
-  // target is the element on which the event happened
-  // currentTarget is the modal
-  // if they are the same then we should close the modal
-  if (evt.target === evt.currentTarget || evt.target.classList.contains(".modal__close")) { 
-     closePopup(evt.target)
-  }
-}; 
-
 class Card {
   constructor(cardData, cardSelector, handlePreviewPicture) {
     this._name = cardData.name;
@@ -69,20 +41,21 @@ class Card {
 
   _handleDeleteButton() {
     this._element.remove();
+    this._element = null;
   }
  
-  _handlePreviewPicture() {
-    openPopup(imagePreviewModal); 
-    modalImageElement.src = cardData._link;
-    modalImageElement.alt = cardData._name;
-    modalCaption.textContent = cardData._name;
-  }
+  // _handlePreviewPicture() {
+  //   openPopup(imagePreviewModal); 
+  //   modalImageElement.src = cardData._link;
+  //   modalImageElement.alt = cardData._name;
+  //   modalCaption.textContent = cardData._name;
+  // }
       
   generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
     
-    this._likeButton = this._element.querySelector(".card__like-button");
+    this._likeButton = this._element.querySelector(".card__like");
 
     this._cardImageEl = this._element.querySelector(".card__image");
     this._cardTitleEl = this._element.querySelector(".card__title");
