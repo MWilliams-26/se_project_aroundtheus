@@ -31,28 +31,27 @@ export const initialCards = [
 ];
 
 export const selectors = {
-  cardSection: ".cards__list",
-  cardTemplate: "#card-template",
-  editFormElement: ".modal__form_edit",
-  addFormElement: ".modal__form_add",
+  cardSection: ".modal__form_add",
   profileEditModal: "#profile-edit-modal",
-  profileEditButton: "#profile-edit-button",
+//   profileEditButton: "#profile-edit-button",
   profileEditModal: "#profile-edit-modal",
-  profileCloseButton: ".modal__close",
+//   profileCloseButton: ".modal__close",
   profileTitle: ".profile__title",
   profileDescription: ".profile__description",
-  profileTitleInput: "#profile-title-input",
+//   profileTitleInput: "#profile-title-input",
   profileDescriptionInput: "#profile-description-input",
-  profileEditForm: ".modal__form_edit",
+//   profileEditForm: ".modal__form_edit",
   profileAddCardModal: "#profile-add-card-modal",
-  profileAddCardButton: "#profile-add-button",
+//   profileAddCardButton: "#profile-add-button",
   profileAddCardModal: "#profile-add-card-modal",
-  profileAddCardCloseButton: ".modal__close",
+//   profileAddCardCloseButton: ".modal__close",
   profileAddCardTitleInput: ".modal__input_type_title",
   profileAddCardUrlInput: ".modal__input_type_url",
-  addCardForm: ".modal__form_add",
+//   addCardForm: ".modal__form_add",
   profileAddCardTitle: "#profile-title-add-card-input",
   profileAddCardUrl: "#profile-url-input",
+//   imagePreviewModal: "#image-preview-modal",
+
 
 }
 

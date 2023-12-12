@@ -54,12 +54,12 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 
 // Add Card
-const profileAddCardButton = document.querySelector("#profile-add-button");
+// const profileAddCardButton = document.querySelector("#profile-add-button");
 const profileAddCardModal = document.querySelector("#profile-add-card-modal");
-const profileAddCardCloseButton = profileAddCardModal.querySelector(".modal__close");
+// const profileAddCardCloseButton = profileAddCardModal.querySelector(".modal__close");
 const profileAddCardTitleInput = profileAddCardModal.querySelector(".modal__input_type_title");
 const profileAddCardUrlInput = profileAddCardModal.querySelector(".modal__input_type_url");
-const addCardForm = profileAddCardModal.querySelector(".modal__form_add");
+// const addCardForm = profileAddCardModal.querySelector(".modal__form_add");
 const profileAddCardTitle = profileAddCardModal.querySelector("#profile-title-add-card-input");
 const profileAddCardUrl = profileAddCardModal.querySelector("#profile-url-input");
 
@@ -69,7 +69,7 @@ const modalImageElement = imagePreviewModal.querySelector(".modal__image-preview
 const modalCaption = imagePreviewModal.querySelector(".modal__image-caption");
 const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close");
 
-const cardSelector = "#card-template";
+// const cardSelector = "#card-template";
 
 const validationSettings = {
     formSelector: ".modal__form",

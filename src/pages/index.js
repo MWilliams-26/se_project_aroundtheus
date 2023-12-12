@@ -1,6 +1,5 @@
-import "../pages/index.css";
-
 // Import all the classes
+import "../pages/index.css";
 import { initialCards, selectors, validationSettings } from "../utils/constants";
 import Card from "../components/Card";
 import FormValidator from "../components/FormValidator";
@@ -10,23 +9,37 @@ import PopupWithForm from "../components/PopupWithForm";
 import PopupWithImage from "../components/PopupWithImage";
 import UserInfo from "../components/UserInfo";
 
-
 // Elements
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileAddCardModal = document.querySelector("#profile-add-card-modal");
+const profileEditButton = document.querySelector("#profile-edit-button");
+const profileCloseButton = profileEditModal.querySelector(".modal__close");
+const profileEditForm = profileEditModal.querySelector(".modal__form_edit");
+const profileAddCardButton = document.querySelector("#profile-add-button");
+const profileAddCardCloseButton = profileAddCardModal.querySelector(".modal__close");
+const addCardForm = profileAddCardModal.querySelector(".modal__form_add");
+const imagePreviewModal = document.querySelector("#image-preview-modal");
+const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close");
+
+
+const cardListEl = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 
 
 
 
 // Create instances of the classes
 const cardSection = new Section({
-  renderer: (item) => {
-    const card = new Card(cardData, cardSelector, handlePreviewPicture);
-    cardSection.addItem(card.generateCard());
+  items: initialCards,
+  renderer: (cardData) => {
+    const cardEl = renderCard(cardData);
+    cardSection.addItem(cardEl);
   },
 },  
-  selectors.cardSection,
+".cards__list"
 );
+
+cardSection.renderItems();
 
 const profileEditFormPopup = new PopupWithForm("#profile-edit-modal", handleProfileEditSubmit);
 profileEditFormPopup.setEventListeners();
@@ -44,31 +57,31 @@ addFormValidator.enableValidation();
 
 const profileUserInfo = new UserInfo("#profile-title-input", "#profile-description-input");
 
-const imagePreviewModal = new PopupWithImage("#image-preview-modal");
-imagePreviewModal.setEventListeners();
+const popupWithImage = new PopupWithImage("#image-preview-modal");
+popupWithImage.setEventListeners();
 
 // Initialize all my instances
-cardSection.renderItems(initialCards);
+
 
 // all the rest
-function renderCard(cardData, wrapper) {
-  console.log("card");
-  const card = new Card(cardData, "#card-template", handleImageClick).generateCard();
-  wrapper.prepend(card);
+function renderCard(cardData) {
+  const newCard = new Card(cardData, "#card-template", () => {
+    popupWithImage.open(cardData.name, cardData.link)
+  })
+  .generateCard();
 }
 
-function handleImageClick() {
-  openPopup(imagePreviewModal);
-  modalImageElement.setAttribute("src", this._link);
-  modalImageElement.setAttribute("alt", this._name);
-  modalCaption.textContent = this._name;
-}
+// function handleImageClick() {
+//   openPopup(imagePreviewModal);
+//   modalImageElement.setAttribute("src", this._link);
+//   modalImageElement.setAttribute("alt", this._name);
+//   modalCaption.textContent = this._name;
+// }
 
-function handleProfileEditSubmit(e) {
+function handleProfileEditSubmit(inputValues) {
   e.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closePopup(profileEditModal);
+  profileUserInfo.setUserInfo(inputValues);
+  closePopup(profileEditFormPopup);
 };
 
 function handleProfileAddCardSubmit(e) {
@@ -94,9 +107,10 @@ function openPopup(modal) {
 }
 
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  openPopup(profileEditModal);
+  const { name, job }  = profileUserInfo.getUserInfo()
+  profileTitleInput.value = name;
+  profileDescriptionInput.value = job;
+  profileEditFormPopup.open()
 });
 
 profileCloseButton.addEventListener("click", () => closePopup(profileEditModal))

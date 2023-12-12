@@ -1,7 +1,7 @@
-const imagePreviewModal = document.querySelector("#image-preview-modal");
-const modalImageElement = imagePreviewModal.querySelector(".modal__image-preview");
-const modalCaption = imagePreviewModal.querySelector(".modal__image-caption");
-const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close");
+// const imagePreviewModal = document.querySelector("#image-preview-modal");
+// const modalImageElement = imagePreviewModal.querySelector(".modal__image-preview");
+// const modalCaption = imagePreviewModal.querySelector(".modal__image-caption");
+// const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close");
 
 class Card {
   constructor(cardData, cardSelector, handlePreviewPicture) {
@@ -30,7 +30,7 @@ class Card {
 
     this._element
       .querySelector(".card__image")
-      .addEventListener("click", () => this._handlePreviewPicture(this));
+      .addEventListener("click", () => this._handlePreviewPicture({ name: this._name, link: this._link }));
   }
 
   _handleLikeButton() {
