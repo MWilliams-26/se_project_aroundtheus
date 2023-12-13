@@ -1,8 +1,3 @@
-// const imagePreviewModal = document.querySelector("#image-preview-modal");
-// const modalImageElement = imagePreviewModal.querySelector(".modal__image-preview");
-// const modalCaption = imagePreviewModal.querySelector(".modal__image-caption");
-// const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close");
-
 class Card {
   constructor(cardData, cardSelector, handlePreviewPicture) {
     this._name = cardData.name;
@@ -44,12 +39,12 @@ class Card {
     this._element = null;
   }
  
-  // _handlePreviewPicture() {
-  //   openPopup(imagePreviewModal); 
-  //   modalImageElement.src = cardData._link;
-  //   modalImageElement.alt = cardData._name;
-  //   modalCaption.textContent = cardData._name;
-  // }
+  _handlePreviewPicture() {
+    openPopup(imagePreviewModal); 
+    modalImageElement.src = cardData._link;
+    modalImageElement.alt = cardData._name;
+    modalCaption.textContent = cardData._name;
+  }
       
   generateCard() {
     this._element = this._getTemplate();
