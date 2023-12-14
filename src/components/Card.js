@@ -39,12 +39,12 @@ class Card {
     this._element = null;
   }
  
-  _handlePreviewPicture() {
-    openPopup(imagePreviewModal); 
-    modalImageElement.src = cardData._link;
-    modalImageElement.alt = cardData._name;
-    modalCaption.textContent = cardData._name;
-  }
+  // _handlePreviewPicture() {
+  //   openPopup(imagePreviewModal); 
+  //   modalImageElement.src = cardData._link;
+  //   modalImageElement.alt = cardData._name;
+  //   modalCaption.textContent = cardData._name;
+  // }
       
   generateCard() {
     this._element = this._getTemplate();
