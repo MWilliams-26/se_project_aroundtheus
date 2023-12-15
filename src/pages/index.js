@@ -1,6 +1,6 @@
 // Import all the classes
 import "../pages/index.css";
-import { initialCards, selectors, validationSettings } from "../utils/constants";
+import { initialCards, validationSettings } from "../utils/constants";
 import Card from "../components/Card";
 import FormValidator from "../components/FormValidator";
 import Section from "../components/Section";

@@ -30,29 +30,6 @@ export const initialCards = [
   }
 ];
 
-export const selectors = {
-    cardSection: ".modal__form_add",
-    profileEditModal: "#profile-edit-modal",
-  //   profileEditButton: "#profile-edit-button",
-    profileEditModal: "#profile-edit-modal",
-  //   profileCloseButton: ".modal__close",
-    profileTitle: ".profile__title",
-    profileDescription: ".profile__description",
-  //   profileTitleInput: "#profile-title-input",
-    profileDescriptionInput: "#profile-description-input",
-  //   profileEditForm: ".modal__form_edit",
-    profileAddCardModal: "#profile-add-card-modal",
-  //   profileAddCardButton: "#profile-add-button",
-    profileAddCardModal: "#profile-add-card-modal",
-  //   profileAddCardCloseButton: ".modal__close",
-    profileAddCardTitleInput: ".modal__input_type_title",
-    profileAddCardUrlInput: ".modal__input_type_url",
-  //   addCardForm: ".modal__form_add",
-    profileAddCardTitle: "#profile-title-add-card-input",
-    profileAddCardUrl: "#profile-url-input",
-  //   imagePreviewModal: "#image-preview-modal",
-  
-  }
 
 export const validationSettings = {
     formSelector: ".modal__form",
