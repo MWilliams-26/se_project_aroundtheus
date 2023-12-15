@@ -15,6 +15,9 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 const profileCloseButton = profileEditModal.querySelector(".modal__close");
 const profileDescriptionInput = document.querySelector("#profile-description-input");
 const profileTitleInput = document.querySelector("#profile-title-input");
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+
 
 // Add Card
 const profileAddCardModal = document.querySelector("#profile-add-card-modal");
@@ -89,14 +92,14 @@ function renderCard(cardData) {
 
 function handleProfileEditSubmit() {
   profileUserInfo.setUserInfo();
-  closePopup(profileEditFormPopup);
+  profileEditFormPopup.close();
 };
 
 function handleProfileAddCardSubmit(inputValues) {
   const cardData = renderCard({name: inputValues.title, link: inputValues.url });
   cardSection.addItem(cardData);
   addCardForm.reset();
-  closePopup(profileAddCardModal);
+  profileAddCardPopup.close();
   addFormValidator.disableButton();
 };
 
@@ -106,35 +109,41 @@ function closePopup(modal) {
   document.removeEventListener("keydown", closeModalByEscape);
 }
 
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
-  document.addEventListener("keydown", closeModalByEscape);
-}
+// function openPopup(modal) {
+//   modal.classList.add("modal_opened");
+//   modal.addEventListener("mousedown", closeModalOnRemoteClick);
+//   document.addEventListener("keydown", closeModalByEscape);
+// }
 
 profileEditButton.addEventListener("click", () => {
   const { name, job } = profileUserInfo.getUserInfo();
-  profileTitleInput.value = name;
-  profileDescriptionInput.value = job;
-  openPopup(profileEditFormPopup);
+  profileTitle.value = name;
+  profileDescription.value = job;
+  profileEditFormPopup.open();
   
 });
 
-profileCloseButton.addEventListener("click", () => closePopup(profileEditModal))
+profileCloseButton.addEventListener("click", () => {
+  profileEditModal.close();
+});
 
 profileAddCardButton.addEventListener("click", () => {
-  openPopup(profileAddCardModal);
+  profileAddCardPopup.open();
 });
 
-profileAddCardCloseButton.addEventListener("click", () =>  closePopup(profileAddCardModal))
-
-imagePreviewCloseButton.addEventListener("click", () => closePopup(imagePreviewModal));
-
-imagePreviewModal.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal_opened")) {
-    closePopup(imagePreviewModal);  
-  }
+profileAddCardCloseButton.addEventListener("click", () => {
+  profileAddCardModal.close();
 });
+
+imagePreviewCloseButton.addEventListener("click", () => {
+  imagePreviewModal.close();
+});
+
+// imagePreviewModal.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("modal_opened")) {
+//     closePopup(imagePreviewModal);  
+//   }
+// });
 
 function closeModalByEscape(e) {
   if (e.key === "Escape") {
