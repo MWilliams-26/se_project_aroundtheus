@@ -124,7 +124,7 @@ profileEditButton.addEventListener("click", () => {
 });
 
 profileCloseButton.addEventListener("click", () => {
-  profileEditModal.close();
+  profileEditFormPopup.close();
 });
 
 profileAddCardButton.addEventListener("click", () => {
@@ -132,11 +132,11 @@ profileAddCardButton.addEventListener("click", () => {
 });
 
 profileAddCardCloseButton.addEventListener("click", () => {
-  profileAddCardModal.close();
+  profileAddCardPopup.close();
 });
 
 imagePreviewCloseButton.addEventListener("click", () => {
-  imagePreviewModal.close();
+  popupWithImage.close();
 });
 
 // imagePreviewModal.addEventListener("click", (e) => {
@@ -145,15 +145,15 @@ imagePreviewCloseButton.addEventListener("click", () => {
 //   }
 // });
 
-function closeModalByEscape(e) {
-  if (e.key === "Escape") {
-      const activeModal = document.querySelector(".modal_opened")
-      closePopup(activeModal);
-  }
-};
+// function closeModalByEscape(e) {
+//   if (e.key === "Escape") {
+//       const activeModal = document.querySelector(".modal_opened")
+//       closePopup(activeModal);
+//   }
+// };
 
-function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget || evt.target.classList.contains(".modal__close")) { 
-    closePopup(evt.target)
-  }
-}; 
+// function closeModalOnRemoteClick(evt) {
+//   if (evt.target === evt.currentTarget || evt.target.classList.contains(".modal__close")) { 
+//     closePopup(evt.target)
+//   }
+// }; 
