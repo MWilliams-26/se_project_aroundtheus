@@ -13,6 +13,7 @@ import UserInfo from "../components/UserInfo";
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileCloseButton = profileEditModal.querySelector(".modal__close");
+const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
 const profileDescriptionInput = document.querySelector("#profile-description-input");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileTitle = document.querySelector(".profile__title");
@@ -67,7 +68,7 @@ const addFormElement = profileAddCardModal.querySelector(".modal__form_add");
 const addFormValidator = new FormValidator(validationSettings, addFormElement);
 addFormValidator.enableValidation();
 
-const profileUserInfo = new UserInfo("#profile-title-input", "#profile-description-input");
+const profileUserInfo = new UserInfo(".profile__title", ".profile__description");
 
 const popupWithImage = new PopupWithImage("#image-preview-modal");
 popupWithImage.setEventListeners();
@@ -100,14 +101,14 @@ function handleProfileAddCardSubmit(inputValues) {
   cardSection.addItem(cardData);
   addCardForm.reset();
   profileAddCardPopup.close();
-  addFormValidator.disableButton();
+  
 };
 
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick)
-  document.removeEventListener("keydown", closeModalByEscape);
-}
+// function closePopup(modal) {
+//   modal.classList.remove("modal_opened");
+//   modal.removeEventListener("mousedown", closeModalOnRemoteClick)
+//   document.removeEventListener("keydown", closeModalByEscape);
+// }
 
 // function openPopup(modal) {
 //   modal.classList.add("modal_opened");
@@ -116,9 +117,10 @@ function closePopup(modal) {
 // }
 
 profileEditButton.addEventListener("click", () => {
-  const { name, job } = profileUserInfo.getUserInfo();
-  profileTitle.value = name;
-  profileDescription.value = job;
+  const userInfo = profileUserInfo.getUserInfo();
+  profileTitleInput.value = userInfo.name;
+  profileDescriptionInput.value = userInfo.job;
+  editFormValidator.reset();
   profileEditFormPopup.open();
   
 });
