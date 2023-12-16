@@ -13,7 +13,7 @@ import UserInfo from "../components/UserInfo";
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileCloseButton = profileEditModal.querySelector(".modal__close");
-const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
+// const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
 const profileDescriptionInput = document.querySelector("#profile-description-input");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileTitle = document.querySelector(".profile__title");
@@ -92,7 +92,7 @@ function renderCard(cardData) {
 // }
 
 function handleProfileEditSubmit() {
-  profileUserInfo.setUserInfo();
+  profileUserInfo.setUserInfo(profileTitleInput.value, profileDescriptionInput.value);
   profileEditFormPopup.close();
 };
 
@@ -120,7 +120,7 @@ profileEditButton.addEventListener("click", () => {
   const userInfo = profileUserInfo.getUserInfo();
   profileTitleInput.value = userInfo.name;
   profileDescriptionInput.value = userInfo.job;
-  editFormValidator.reset();
+  profileEditFormPopup.close();
   profileEditFormPopup.open();
   
 });
