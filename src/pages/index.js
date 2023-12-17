@@ -13,7 +13,7 @@ import UserInfo from "../components/UserInfo";
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileCloseButton = profileEditModal.querySelector(".modal__close");
-// const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
+const profileEditForm = profileEditModal.querySelector(".modal__form_edit");
 const profileDescriptionInput = document.querySelector("#profile-description-input");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileTitle = document.querySelector(".profile__title");
@@ -35,7 +35,7 @@ const modalCaption = imagePreviewModal.querySelector(".modal__image-caption");
 const imagePreviewCloseButton = imagePreviewModal.querySelector(".modal__close");
 
 
-const cardListEl = document.querySelector(".cards__list");
+
 const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 
 
@@ -84,78 +84,30 @@ function renderCard(cardData) {
   .generateCard();
 }
 
-// function handleImageClick() {
-//   openPopup(imagePreviewModal);
-//   modalImageElement.setAttribute("src", this._link);
-//   modalImageElement.setAttribute("alt", this._name);
-//   modalCaption.textContent = this._name;
-// }
 
-function handleProfileEditSubmit() {
-  profileUserInfo.setUserInfo(profileTitleInput.value, profileDescriptionInput.value);
+function handleProfileEditSubmit(inputValues) {
+  profileUserInfo.setUserInfo(inputValues.title, inputValues.description);
   profileEditFormPopup.close();
 };
 
 function handleProfileAddCardSubmit(inputValues) {
   const cardData = renderCard({name: inputValues.title, link: inputValues.url });
   cardSection.addItem(cardData);
-  addCardForm.reset();
   profileAddCardPopup.close();
   
 };
-
-// function closePopup(modal) {
-//   modal.classList.remove("modal_opened");
-//   modal.removeEventListener("mousedown", closeModalOnRemoteClick)
-//   document.removeEventListener("keydown", closeModalByEscape);
-// }
-
-// function openPopup(modal) {
-//   modal.classList.add("modal_opened");
-//   modal.addEventListener("mousedown", closeModalOnRemoteClick);
-//   document.addEventListener("keydown", closeModalByEscape);
-// }
 
 profileEditButton.addEventListener("click", () => {
   const userInfo = profileUserInfo.getUserInfo();
   profileTitleInput.value = userInfo.name;
   profileDescriptionInput.value = userInfo.job;
-  profileEditFormPopup.close();
   profileEditFormPopup.open();
+  editFormValidator.resetValidation();
   
-});
-
-profileCloseButton.addEventListener("click", () => {
-  profileEditFormPopup.close();
 });
 
 profileAddCardButton.addEventListener("click", () => {
   profileAddCardPopup.open();
+  addFormValidator.resetValidation();
 });
 
-profileAddCardCloseButton.addEventListener("click", () => {
-  profileAddCardPopup.close();
-});
-
-imagePreviewCloseButton.addEventListener("click", () => {
-  popupWithImage.close();
-});
-
-// imagePreviewModal.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("modal_opened")) {
-//     closePopup(imagePreviewModal);  
-//   }
-// });
-
-// function closeModalByEscape(e) {
-//   if (e.key === "Escape") {
-//       const activeModal = document.querySelector(".modal_opened")
-//       closePopup(activeModal);
-//   }
-// };
-
-// function closeModalOnRemoteClick(evt) {
-//   if (evt.target === evt.currentTarget || evt.target.classList.contains(".modal__close")) { 
-//     closePopup(evt.target)
-//   }
-// }; 

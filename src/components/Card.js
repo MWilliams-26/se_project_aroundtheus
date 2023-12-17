@@ -38,19 +38,10 @@ class Card {
     this._element.remove();
     this._element = null;
   }
- 
-  // _handlePreviewPicture() {
-  //   openPopup(imagePreviewModal); 
-  //   modalImageElement.src = cardData._link;
-  //   modalImageElement.alt = cardData._name;
-  //   modalCaption.textContent = cardData._name;
-  // }
       
   generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
-    
-    this._likeButton = this._element.querySelector(".card__like");
 
     this._cardImageEl = this._element.querySelector(".card__image");
     this._cardTitleEl = this._element.querySelector(".card__title");
