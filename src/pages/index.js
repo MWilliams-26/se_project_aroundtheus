@@ -98,11 +98,11 @@ function handleProfileAddCardSubmit(inputValues) {
 };
 
 profileEditButton.addEventListener("click", () => {
+  editFormValidator.resetValidation();
   const userInfo = profileUserInfo.getUserInfo();
   profileTitleInput.value = userInfo.name;
   profileDescriptionInput.value = userInfo.job;
   profileEditFormPopup.open();
-  editFormValidator.resetValidation();
   
 });
 

@@ -79,7 +79,7 @@ class FormValidator {
   this._toggleButtonState(); 
 
   this._inputEls.forEach((inputElement) => {
-    this._hideError(inputElement)
+    this._hideInputError(inputElement)
   });
   }
 

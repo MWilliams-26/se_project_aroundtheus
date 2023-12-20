@@ -92,7 +92,7 @@
   height: 27.255px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .3);
-  padding-bottom: 13.34px;
+  padding-bottom: 13px;
   margin-bottom: 29.74px;
 }
 
@@ -123,6 +123,7 @@
   color: #ff0000;
   position: absolute;
   top: 25px;
+  padding-top: 20px;
   transition: opacity 0.3s;
   width: 100%;
 }
@@ -133,7 +134,7 @@
 }*/
 
 .modal__input:last-of-type {
-  margin-bottom: 48px;
+  margin-bottom: 30px;
 }
 
 .modal__button {
