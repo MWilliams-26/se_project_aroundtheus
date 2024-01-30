@@ -1,3 +1,5 @@
+import { data } from "autoprefixer";
+
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -18,38 +20,37 @@ export default class Api {
   };
 
   loadUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, 
-    {
-      method: "get",
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "GET",
       headers: this._headers,}).then(this._checkResponse)
   };
 
-  editProfileInfo() {
+  editProfileInfo(cardData) {
     return fetch(`${this._baseUrl}/users/me`, 
     {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: title,
-        about: description,
+        name: cardData.title,
+        about: cardData.description,
       }),
     }).then(this._checkResponse)  
   };
 
-  addCard() {
+  addCard(inputValues) {
     return fetch(`${this._baseUrl}/cards`, 
     {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: title,
-        link: url,
+        name: inputValues.title,
+        link: inputValues.url,
       }),
     }).then(this._checkResponse)
   };
 
-  deleteCard() {
-    return fetch(`${this._baseUrl}/cards/_Id`, 
+  deleteCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}`, 
     {
       method: "DELETE",
       headers: this._headers,
@@ -57,8 +58,8 @@ export default class Api {
     .then(this._checkResponse)
   };
 
-  likeCard() {
-    return fetch(`${this._baseUrl}/cards/_Id`, 
+  likeCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, 
     {
       method: "PUT",
       headers: this._headers,
@@ -66,8 +67,8 @@ export default class Api {
     .then(this._checkResponse)
   };
 
-  unlikeCard() {
-    return fetch(`${this._baseUrl}/cards/_Id`, 
+  unlikeCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}`, 
     {
       method: "DELETE",
       headers: this._headers,
@@ -75,14 +76,19 @@ export default class Api {
     .then(this._checkResponse)
   };
 
-
-
-
-
-
+  editProfilePicture() {
+    return fetch(`${this._baseUrl}/users/me/avatar`, 
+    {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: link,
+      }),
+    }).then(this._checkResponse) 
+  }
 
   loadPageContent() {
-    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
+    return Promise.all([this.loadUserInfo(), this.getInitialCards()]);
   }
 
 

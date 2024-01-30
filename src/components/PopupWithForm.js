@@ -19,7 +19,7 @@ class PopupWithForm extends Popup {
       inputValues[input.name] = input.value;
     });
     return inputValues;
-  }
+  } 
 
   setEventListeners() {
     this._popupForm.addEventListener("submit", (evt) => {
