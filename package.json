@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
+ project-9
     "dev": "webpack serve --mode development",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
+
+    "dev": "webpack serve --mode development"
+ main
   },
   "keywords": [],
   "author": "Elise Bouer",
@@ -20,7 +24,10 @@
     "clean-webpack-plugin": "4.0.0",
     "css-loader": "6.7.1",
     "cssnano": "5.1.12",
+ project-9
     "gh-pages": "^6.1.1",
+
+ main
     "html-webpack-plugin": "5.5.0",
     "mini-css-extract-plugin": "2.6.1",
     "postcss-loader": "7.0.1",
@@ -31,4 +38,8 @@
   "dependencies": {
     "core-js": "3.23.5"
   }
+ project-9
 }
+
+}
+ main
