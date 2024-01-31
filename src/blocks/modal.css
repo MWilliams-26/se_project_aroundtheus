@@ -31,6 +31,30 @@
   
 }
 
+.modal__container-delete {
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  padding-right: 36px;
+  padding-bottom: 0px;
+  padding-left: 36px;
+  border-radius: 10px;
+  width: 430px;
+  height: 181px;
+}
+
+.modal__container-avatar {
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  padding-right: 36px;
+  padding-bottom: 0px;
+  padding-left: 36px;
+  border-radius: 10px;
+  width: 430px;
+  height: 272px;
+}
+
 .modal__image-container {
   position: relative;
   margin: auto;
@@ -78,7 +102,35 @@
   top: 229px;
   left: 461px;
   margin-bottom: 54px;
-  margin-top: 0;
+  margin-top: 34px;
+}
+
+.modal__heading-trash {
+  color: #000;
+  font-family: Inter;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
+  width: 358px;
+  height: 23px;
+  top: 229px;
+  left: 461px;
+  margin-bottom: 36px;
+  margin-top: 34px;
+}
+
+.modal__heading-avatar {
+  color: #000;
+  font-family: Inter;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
+  width: 330px;
+  height: 23px;
+  top: 229px;
+  left: 461px;
+  margin-bottom: 54px;
+  margin-top: 34px;
 }
 
 .modal__form {

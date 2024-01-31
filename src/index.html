@@ -19,21 +19,25 @@
 
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%=require('./images/jacques-cousteau.png')%>"
-            alt="Avatar"
+
+          <div class="profile__avatar-container">
+            <img
+              class="profile__image"
+              src="<%=require('./images/jacques-cousteau.png')%>"
+              alt="Avatar"
             >
-            <div class="profile__info">
-              <h1 class="profile__title">Jacques Cousteau</h1>
-              <button class="profile__edit-button" id="profile-edit-button" type="button"></button>
-              <p class="profile__description">Explorer</p>
-            </div>
-            <button class="profile__add-button" id="profile-add-button" type="button"></button>
+            <button class="profile__avatar-button" id="profile-avatar-button" type="button"></button>
+          </div>
+          <div class="profile__info">
+            <h1 class="profile__title">Jacques Cousteau</h1>
+            <button class="profile__edit-button" id="profile-edit-button" type="button"></button>
+            <p class="profile__description">Explorer</p>
+          </div>
+          <button class="profile__add-button" id="profile-add-button" type="button"></button>
         </section>
         <section class="cards page__section">
          <ul class="cards__list"></ul>    
-        </section>       
+        </section>
       </main>
       <footer class="footer page__section">
         <p class="footer__copyright">&copy; 2023 Around the U.S.</p>
@@ -41,7 +45,7 @@
     </div>
 
     <!-- Edit modal -->
-    <div class="modal" id="profile-edit-modal">
+    <div class="modal profile-edit-modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close" id="profile-close-button"></button>
         <p class="modal__heading">Edit Profile</p>
@@ -72,6 +76,25 @@
             />  
             <span class="modal__error" id="profile-description-input-error"></span>  
           </label>
+          <button class="modal__button modal__button_disabled" disabled>Save</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Avatar Edit Modal -->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container-avatar">
+        <button class="modal__close" id="avatar-edit-modal-close-button"></button>
+        <form class="modal__form modal__form_avatar" id="avatar-edit-form"></form>
+          <p class="modal__heading-avatar">Change profile picture</p>
+          <input   
+          class="modal__input modal__input_avatar"
+          type="url"
+          name="link"
+          id="avatar-url-input"
+          placeholder="Avatar URL"
+          required
+          >
           <button class="modal__button modal__button_disabled" disabled>Save</button>
         </form>
       </div>
@@ -112,6 +135,17 @@
       </div>
     </div>
 
+    <!-- Confirm delete modal -->
+    <div class="modal" id="confirm-delete-modal">
+      <div class="modal__container-delete">
+        <button class="modal__close" id="confirm-delete-modal-close-button"></button>
+        <form class="modal__form modal__form_delete" id="confirm-delete-form"></form>
+        <p class="modal__heading-trash">Are you sure?</p>
+        <button class="modal__button" id="confirm-delete-submit" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+
     <!-- Image preview modal -->
     <div class="modal" id="image-preview-modal">
       <div class="modal__image-container">
@@ -124,8 +158,6 @@
         <button class="modal__close"></button>
       </div>
     </div>
- 
-  
     
     <template id="card-template">
       <li class="card">

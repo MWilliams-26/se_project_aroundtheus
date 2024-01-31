@@ -83,6 +83,28 @@
   cursor: pointer;
   transition: 0.1s;
 }
+
+.profile__avatar-button {
+  position: absolute;
+  top: 47px;
+  left: 47px;
+  background: transparent url(../images/avatarEditIcon.svg) center no-repeat;
+  width: 26px;
+  height: 26px;
+  background-size: contain;
+  border: none;
+  transition: 0.3s ease-in;
+  opacity: 0;
+}
+
+.profile__avatar-button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.profile__avatar-container {
+  position: relative;
+}
   
 @media screen and (max-width: 880px) {
   .profile {
