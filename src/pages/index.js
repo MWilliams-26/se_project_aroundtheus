@@ -78,6 +78,8 @@ api
   .catch((err) => {
     console.error(err); 
   });
+  
+const profileUserInfo = new UserInfo(".profile__title", ".profile__description", ".profile__image");  
 
 
 
@@ -102,7 +104,6 @@ function handlePreviewPicture(name, link) {
   popupWithImage.open(name, link);
 }
 
-const profileUserInfo = new UserInfo(".profile__title", ".profile__description", ".profile__image");
 
 function renderCard(cardData) {
   const card = new Card(
@@ -159,6 +160,7 @@ const avatarEditPopup = new PopupWithForm("#avatar-edit-modal", handleEditAvatar
 avatarEditPopup.setEventListeners();
 
 function handleEditAvatarSubmit(inputValues) {
+  avatarEditPopup.setLoading(true);
   api
     .editProfilePicture(inputValues.link)
     .then((res) => {
@@ -167,7 +169,10 @@ function handleEditAvatarSubmit(inputValues) {
     })
     .catch((err) => {
       console.error(err);
-    });
+    })
+    .finally(() => {
+      avatarEditPopup.setLoading(false);
+    })
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -210,16 +215,16 @@ function handleLikeClick(card) {
     }
 }  
   
-const confirmDelete = new PopupWithConfirmation("#confirm-delete-modal");
-  confirmDelete.setEventListeners();
+const confirmDelete = new PopupWithConfirmation("#confirm-delete-modal", handleDeleteClick);
+confirmDelete.setEventListeners();
   
-function handleDeleteClick(cardId) {
+function handleDeleteClick(card) {
   confirmDelete.open();
   confirmDelete.setSubmitAction(() => {  
     api
-      .deleteCard(cardId)
+      .deleteCard(card)
       .then(() => {
-        cardId.handleDeleteClick();
+        card.handleDeleteClick();
         confirmDelete.close();
       })
       .catch((err) => {
