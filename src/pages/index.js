@@ -10,7 +10,6 @@ import PopupWithImage from "../components/PopupWithImage";
 import PopupWithConfirmation from "../components/PopupWithConfirmation";
 import UserInfo from "../components/UserInfo";
 import Api from "../components/Api";
-import { data } from "autoprefixer";
 
 
 // Profile Edit
@@ -54,7 +53,7 @@ const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "f34fc940-6444-4c84-9643-915e876889fb",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   }
 }); 
 
@@ -215,14 +214,15 @@ function handleLikeClick(card) {
     }
 }  
   
-const confirmDelete = new PopupWithConfirmation("#confirm-delete-modal", handleDeleteClick);
+const confirmDelete = new PopupWithConfirmation("#confirm-delete-modal");
 confirmDelete.setEventListeners();
+
   
 function handleDeleteClick(card) {
   confirmDelete.open();
   confirmDelete.setSubmitAction(() => {  
     api
-      .deleteCard(card)
+      .deleteCard(card._id)
       .then(() => {
         card.handleDeleteClick();
         confirmDelete.close();

@@ -1,5 +1,3 @@
-import { data } from "autoprefixer";
-
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -76,7 +74,7 @@ export default class Api {
     .then(this._checkResponse)
   };
 
-  editProfilePicture() {
+  editProfilePicture(link) {
     return fetch(`${this._baseUrl}/users/me/avatar`, 
     {
       method: "PATCH",

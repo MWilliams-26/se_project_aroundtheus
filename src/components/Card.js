@@ -1,5 +1,6 @@
 class Card {
-  constructor(cardData, cardSelector, handlePreviewPicture, handleDeleteClick, handleLikeClick) {
+  constructor(cardData, cardSelector, handlePreviewPicture, handleDeleteClick, handleLikeClick) 
+  {
     this._name = cardData.name;
     this._link = cardData.link;
     this._id = cardData._id;
@@ -53,6 +54,7 @@ class Card {
     this._element.remove();
     this._element = null;
   }
+  
       
   generateCard() {
     this._element = this._getTemplate();
