@@ -60,10 +60,10 @@ const api = new Api({
 let cardSection;
 
 api
-  .loadPageContent()
+  .getInitialCards()
   .then((res) => {
     cardSection = new Section({
-      items: initialCards,
+      items: res,
       renderer: (cardData) => {
         const cardEl = renderCard(cardData);
         cardSection.addItem(cardEl);
@@ -192,7 +192,25 @@ profileAvatarButton.addEventListener("click", () => {
   avatarEditPopup.open();
 });
 
-function handleLikeClick(card) {
+const confirmDelete = new PopupWithConfirmation("#confirm-delete-modal");
+confirmDelete.setEventListeners();
+
+
+function handleDeleteClick(card) {
+  confirmDelete.open();
+  confirmDelete.setSubmitAction(() => {  
+    api
+    .deleteCard(card._id)
+    .then(() => {
+      card.handleDeleteClick();
+      confirmDelete.close();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+  });
+
+  function handleLikeClick(card) {
     if (card.isLiked) {
       api
       .likeCard(card._id)
@@ -210,25 +228,7 @@ function handleLikeClick(card) {
       })
       .catch((err) => {
         console.error(err);
-      })
+      });
     }
-}  
-  
-const confirmDelete = new PopupWithConfirmation("#confirm-delete-modal");
-confirmDelete.setEventListeners();
-
-  
-function handleDeleteClick(card) {
-  confirmDelete.open();
-  confirmDelete.setSubmitAction(() => {  
-    api
-      .deleteCard(card._id)
-      .then(() => {
-        card.handleDeleteClick();
-        confirmDelete.close();
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-    });
+  }
 }        
