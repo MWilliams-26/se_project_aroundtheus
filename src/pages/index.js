@@ -210,25 +210,26 @@ function handleDeleteClick(card) {
     })
   });
 
-  function handleLikeClick(card) {
-    if (card.isLiked) {
-      api
-      .likeCard(card._id)
-      .then((res) => {
-        card.handleLikeClick();
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-    } else {
-      api
-      .unlikeCard(card._id)
-      .then((res) => {
-        card.handleLikeClick();
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-    }
+}
+
+function handleLikeClick(card) {
+  if (!card.isLiked) {
+    api
+    .likeCard(card._id)
+    .then((res) => {
+      card.handleLikeClick();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  } else {
+    api
+    .unlikeCard(card._id)
+    .then((res) => {
+      card.handleLikeClick();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   }
 }        
