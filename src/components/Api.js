@@ -42,7 +42,7 @@ export default class Api {
       headers: this._headers,
       body: JSON.stringify({
         name: inputValues.title,
-        link: inputValues.url,
+        link: inputValues.url, 
       }),
     }).then(this._checkResponse)
   };
