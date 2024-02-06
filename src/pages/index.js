@@ -78,7 +78,16 @@ api
     console.error(err); 
   });
   
-const profileUserInfo = new UserInfo(".profile__title", ".profile__description", ".profile__image");  
+const profileUserInfo = new UserInfo(".profile__title", ".profile__description", ".profile__image");    
+  
+api
+  .loadUserInfo()
+  .then((res) => {
+    profileUserInfo.getUserInfo();
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 
 
@@ -143,7 +152,7 @@ function handleProfileAddCardSubmit(inputValues) {
   api
     .addCard(inputValues)
     .then((res) => {
-      const cardData = renderCard({name: inputValues.title, link: inputValues.url });
+      const cardData = renderCard({name: inputValues.title, link: inputValues.url});
       cardSection.addItem(cardData);
       profileAddCardPopup.close();
     })

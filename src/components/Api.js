@@ -1,3 +1,5 @@
+import Card from "./Card";
+
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -41,8 +43,8 @@ export default class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: inputValues.title,
-        link: inputValues.url, 
+        name: inputValues.name,
+        link: inputValues.link, 
       }),
     }).then(this._checkResponse)
   };
