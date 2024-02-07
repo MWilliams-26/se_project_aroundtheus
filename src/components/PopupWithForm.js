@@ -28,7 +28,7 @@ class PopupWithForm extends Popup {
     if (isLoading) {
       this._submitButton.textContent = "Saving...";
     } else {
-      this._submitButton.textContent = this._submitButtonText;
+      this._submitButton.textContent = "Save";
     }
   }
 
