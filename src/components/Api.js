@@ -43,8 +43,8 @@ export default class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: inputValues.name,
-        link: inputValues.link, 
+        name: inputValues.title,
+        link: inputValues.url, 
       }),
     }).then(this._checkResponse)
   };

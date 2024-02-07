@@ -4,7 +4,7 @@ class Card {
     this._name = cardData.name;
     this._link = cardData.link;
     this._id = cardData._id;
-    this._isLiked = cardData.isLiked
+    this.isLiked = cardData.isLiked
     this._cardSelector = cardSelector;
     this._handlePreviewPicture = handlePreviewPicture;
     this._handleDeleteClick = handleDeleteClick;
@@ -37,12 +37,13 @@ class Card {
 
   }
 
-  handleLikeClick() {
-    this._likeButton.classList.toggle("card__like-button_active");
+  handleLikeClick(isLiked) {
+    this._isLiked = isLiked;
+    this._updateLikeStatus();
   }  
 
-  updateLikeStatus() {
-    if (this._isLiked) {
+  _updateLikeStatus() {
+    if (this.isLiked) {
       this._likeButton.classList.add("card__like-button_active");
     } else {
       this._likeButton.classList.remove("card__like-button_active");
@@ -69,6 +70,7 @@ class Card {
     this._likeButton = this._element.querySelector(".card__like-button");
    
     this._setEventListeners();
+    this._updateLikeStatus();
    
     return this._element;
   } 
