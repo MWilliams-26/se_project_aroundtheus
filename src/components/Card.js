@@ -37,8 +37,8 @@ class Card {
 
   }
 
-  handleLikeClick(isLiked) {
-    this._isLiked = isLiked;
+  setLikeClick(isLiked) {
+    this.isLiked = isLiked;
     this._updateLikeStatus();
   }  
 
@@ -69,8 +69,8 @@ class Card {
     this._deleteButton = this._element.querySelector(".card__delete-button");
     this._likeButton = this._element.querySelector(".card__like-button");
    
-    this._setEventListeners();
     this._updateLikeStatus();
+    this._setEventListeners();
    
     return this._element;
   } 

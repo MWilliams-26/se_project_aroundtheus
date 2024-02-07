@@ -152,7 +152,7 @@ function handleProfileAddCardSubmit(inputValues) {
   api
     .addCard(inputValues)
     .then((res) => {
-      const cardData = renderCard({name: inputValues.title, link: inputValues.url});
+      const cardData = renderCard(res);
       cardSection.addItem(cardData);
       profileAddCardPopup.close();
     })
@@ -226,7 +226,7 @@ function handleLikeClick(card) {
     api
     .likeCard(card._id)
     .then((res) => {
-      card.handleLikeClick();
+      card.setLikeClick(res.isLiked);
     })
     .catch((err) => {
       console.error(err);
@@ -235,7 +235,7 @@ function handleLikeClick(card) {
     api
     .unlikeCard(card._id)
     .then((res) => {
-      card.handleLikeClick();
+      card.setLikeClick(res.isLiked);
     })
     .catch((err) => {
       console.error(err);
