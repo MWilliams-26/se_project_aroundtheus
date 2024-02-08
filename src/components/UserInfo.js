@@ -9,18 +9,16 @@ export default class UserInfo {
     const userInfo = {
       name: this._nameElement.textContent,
       job: this._jobElement.textContent,
-      avatar: this._avatarElement.textContent,
     };
     return userInfo;
   }
 
-  setUserInfo(name, job, avatar) {
+  setUserInfo(name, job) {
     this._nameElement.textContent = name;
     this._jobElement.textContent = job;
-    this._avatarElement.textContent = avatar;
   }
 
-  setUserAvatar(link) {
-    this._avatarElement.src = link;
+  setUserAvatar(avatar) {
+    this._avatarElement.src = avatar;
   }
 }

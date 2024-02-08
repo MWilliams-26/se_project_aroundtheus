@@ -78,12 +78,17 @@ api
     console.error(err); 
   });
   
-const profileUserInfo = new UserInfo(".profile__title", ".profile__description", ".profile__image");    
+const profileUserInfo = new UserInfo(
+  ".profile__title", 
+  ".profile__description", 
+  ".profile__image"
+);      
   
 api
   .loadUserInfo()
-  .then((res) => {
-    profileUserInfo.getUserInfo();
+  .then((info) => {
+    profileUserInfo.setUserInfo(info.name, info.about);
+    profileUserInfo.setUserAvatar(info.avatar);
   })
   .catch((err) => {
     console.error(err);
@@ -199,11 +204,11 @@ profileAddCardButton.addEventListener("click", () => {
 
 profileAvatarButton.addEventListener("click", () => {
   avatarEditPopup.open();
+  avatarFormValidator.resetValidation();
 });
 
 const confirmDelete = new PopupWithConfirmation("#confirm-delete-modal");
 confirmDelete.setEventListeners();
-
 
 function handleDeleteClick(card) {
   confirmDelete.open();
