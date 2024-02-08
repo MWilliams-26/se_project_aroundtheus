@@ -1,4 +1,4 @@
-import { data } from "autoprefixer";
+import Card from "./Card";
 
 export default class Api {
   constructor({ baseUrl, headers }) {
@@ -44,7 +44,7 @@ export default class Api {
       headers: this._headers,
       body: JSON.stringify({
         name: inputValues.title,
-        link: inputValues.url,
+        link: inputValues.url, 
       }),
     }).then(this._checkResponse)
   };
@@ -68,7 +68,7 @@ export default class Api {
   };
 
   unlikeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, 
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, 
     {
       method: "DELETE",
       headers: this._headers,
@@ -76,7 +76,7 @@ export default class Api {
     .then(this._checkResponse)
   };
 
-  editProfilePicture() {
+  editProfilePicture(link) {
     return fetch(`${this._baseUrl}/users/me/avatar`, 
     {
       method: "PATCH",

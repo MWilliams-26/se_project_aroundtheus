@@ -23,15 +23,15 @@
           <div class="profile__avatar-container">
             <button class="profile__avatar-button" id="profile-avatar-button" type="button"></button>
             <img
-              class="profile__image"
+              class="profile__avatar"
               src="<%=require('./images/jacques-cousteau.png')%>"
               alt="Avatar"
             >
           </div>
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title"></h1>
             <button class="profile__edit-button" id="profile-edit-button" type="button"></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button class="profile__add-button" id="profile-add-button" type="button"></button>
         </section>
@@ -85,16 +85,19 @@
     <div class="modal" id="avatar-edit-modal">
       <div class="modal__container-avatar">
         <button class="modal__close" id="avatar-edit-modal-close-button"></button>
-        <form class="modal__form modal__form_avatar" id="avatar-edit-form"></form>
+        <form class="modal__form modal__form_avatar" id="avatar-edit-form">
           <p class="modal__heading-avatar">Change profile picture</p>
-          <input   
-          class="modal__input modal__input_avatar"
-          type="url"
-          name="link"
-          id="avatar-url-input"
-          placeholder="Avatar URL"
-          required
-          >
+          <label class="modal__label">
+            <input 
+              class="modal__input modal__input_avatar"
+              type="url"
+              name="link"
+              id="avatar-url-input"
+              placeholder="Avatar URL"
+              required
+            />
+            <span class="modal__error" id="avatar-url-input-error"></span>
+          </label>
           <button class="modal__button">Save</button>
         </form>
       </div>
@@ -139,9 +142,9 @@
     <div class="modal" id="confirm-delete-modal">
       <div class="modal__container-delete">
         <button class="modal__close" id="confirm-delete-modal-close-button"></button>
-        <form class="modal__form modal__form_delete" id="confirm-delete-form"></form>
-        <p class="modal__heading-trash">Are you sure?</p>
-        <button class="modal__button" id="confirm-delete-submit" type="submit">Yes</button>
+        <form class="modal__form modal__form_delete" id="confirm-delete-form">
+          <p class="modal__heading-trash">Are you sure?</p>
+          <button class="modal__button" id="confirm-delete-submit" type="submit">Yes</button>
         </form>
       </div>
     </div>
