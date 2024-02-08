@@ -81,7 +81,7 @@ api
 const profileUserInfo = new UserInfo(
   ".profile__title", 
   ".profile__description", 
-  ".profile__image"
+  ".profile__avatar"
 );      
   
 api
