@@ -1,14 +1,18 @@
-# Project 3: Around The U.S.
+Around The U.S. (API Functionality)
 
 ### Overview  
 
 * Intro  
-* Figma  
-* Images  
+* Figma
+* HTML
+* CSS
+* Images
+* APIs
+* Javascript 
   
 **Intro**
   
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
+this project enhances the site's features by leveraging APIs creatively. Users can now easily customize their profiles by changing avatars and managing profile cards seamlessly with server requests. This simple yet effective enhancement brings a new level of personalization to the platform  
   
 **Figma**  
   
