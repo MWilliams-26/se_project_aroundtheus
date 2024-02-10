@@ -1,4 +1,4 @@
-Around The U.S. (API Functionality)
+Around The U.S.
 
 ### Overview  
 
